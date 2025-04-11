@@ -1,43 +1,48 @@
-
-
-
-//categories card
-
-export  function CategoriesCard(props) {
-	return (
-		<div className='bg-indigo-500 w-80 h-auto md:w-48 '>
-		<div className=' max-w-full relative '>
-				<img className='w-full h-80  bg-cover object-cover ' src={props.img} alt={props.alt}/>
-			<span className='absolute bottom-10 right-0 left-0 uppercase tracking-widest  text-center text-white font-semibold text-4xl md:text-xl'>{props.name}</span>
-		</div>
-		</div>
-	)
+// Categories Card
+export function CategoriesCard(props) {
+  return (
+    <div className='group bg-indigo-500 w-full sm:w-80 md:w-48 h-auto rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 mx-auto'>
+      <div className='relative'>
+        <img 
+          className='w-full h-60 sm:h-80 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105' 
+          src={props.img} 
+          alt={props.alt}
+          loading='lazy'
+        />
+        <span className='absolute bottom-4 inset-x-0 uppercase tracking-widest text-center text-white font-semibold text-2xl sm:text-3xl md:text-xl px-2 drop-shadow-md'>
+          {props.name}
+        </span>
+      </div>
+    </div>
+  )
 }
 
-
-//podcasts card
-
-export  function PodcastsCard(props) {
-	return (
-<div className='w-80 h-auto ring-1 ring-slate-300 shadow-sm md:w-48 '>
-<div className='border-1 rounded-2xl shadow-xl border-gray-300'>
-	<div className='flex '>
-		
-<div className='w-2/3 p-3'>
-	<a className='text-2xl  capitalize text-blue-500 md:text-sm' href={props.link}>{props.name}</a>
-	<p className='mt-5 text-xl md:text-sm md:mt-3'>episode {props.number}</p>
-</div>
-<div className='  rounded-bl-full '>
-	<img className='rounded-bl-full w-100 object-center md:w-100 md:h-28 ' src={props.img} alt={props.alt}/>
-</div>
-	</div>
-
-	<p className='text-justify px-2 text-lg md:text-sm'>{props.para}</p>
-</div>
-<span></span>
-	
-</div>	
-	
-	)
+// Podcasts Card
+export function PodcastsCard(props) {
+  return (
+    <div className='w-full sm:w-80 md:w-48 h-auto rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-white mx-auto'>
+      <div className='flex flex-col sm:flex-row'>
+        <div className='w-full sm:w-2/3 p-3 sm:p-2 md:p-3'>
+          <a 
+            className='text-xl sm:text-2xl md:text-sm font-medium capitalize text-blue-600 hover:text-blue-800 transition-colors duration-200 line-clamp-2' 
+            href={props.link}
+          >
+            {props.name}
+          </a>
+          <p className='mt-2 sm:mt-5 md:mt-3 text-lg sm:text-xl md:text-sm text-gray-600'>Episode {props.number}</p>
+        </div>
+        <div className='w-full sm:w-1/3 overflow-hidden'>
+          <img 
+            className='w-full h-24 sm:h-full object-cover sm:rounded-bl-full' 
+            src={props.img} 
+            alt={props.alt}
+            loading='lazy'
+          />
+        </div>
+      </div>
+      <p className='px-3 pb-3 text-base sm:text-lg md:text-sm text-gray-700 line-clamp-3 sm:line-clamp-4'>
+        {props.para}
+      </p>
+    </div>
+  )
 }
-

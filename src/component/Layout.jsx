@@ -12,35 +12,53 @@ export default function Layout() {
 
 function LogoComponent(){
 	return(
-		<div className='  w-auto text-center py-4 lg:py-7 hidden md:block '>
-		<a href='#' className='text-2xl lg:text-3xl  uppercase font-semibold '>the creative80 room</a>	
+		<div className='  w-full text-center py-3 px-4 lg:py-7 hidden md:block '>
+		<a href='#' className='text-2xl lg:text-3xl  uppercase font-semibold hover:text-indigo-600 transition-colors duration-200 lg:text-3xl xl:text-4xl '>the creative80 room</a>	
 		</div>
 		)
 }
 
-function MenuComponent(){
-	return(
-		<div className=' border-b-2  md:border-1   border-red-600 flex justify-between items-center w-screen py-5 md:py-6 sm:py-5 px-7 md:px-0 lg:px-0'>
-			<a href="" className=' text-xl md:text-sm  lg:text-xl font-semibold uppercase '>the creative80 room</a>
-			<button className='md:hidden'><img className='size-8 sm:size-8 bg-white ' src={MENUICON} alt=""/></button>
-			
-			<div className='hidden md:block'>
-				<ul className='  flex md:text-[13px] lg:text-lg md:gap-2  capitalize ml-7 md:ml-0 '>
-					<li><a href="">design</a></li>
-					<li><a href=""></a>flim</li>
-					<li><a href=""></a>advertising</li>
-					<li><a href=""></a>photography</li>
-					<li><a href=""></a>digital</li>
-					<li><a href=""></a>podcasts</li>
-					<li><a href=""></a>about</li>
-					<li><a href=""></a>contact</li>
+function MenuComponent() {
+  return (
+    <nav className='border-b-2 lg:border-2 border-red-600 md:border-b-1 w-full py-4 px-4 sm:py-5 sm:px-6 md:py-6 lg:px-8'>
+      <div className='max-w-7xl mx-auto flex justify-between items-center'>
+        {/* Logo */}
+        <a 
+          href="#" 
+          className='text-xl font-semibold uppercase tracking-tight md:text-base lg:text-xl xl:text-2xl text-gray-900 hover:text-red-600 transition-colors'
+        >
+          the creative80 room
+        </a>
 
+        {/* Mobile Menu Button */}
+        <button className='md:hidden p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500'>
+          <img 
+            className='w-8 h-8' 
+            src={MENUICON} 
+            alt="Menu" 
+          />
+        </button>
 
-				</ul>
-			</div>
-			<div className='hidden md:block'>
-				<button className='bg-red-500 px-4 py-2 md:px-1 md:py-2	rounded mr-5 md:mr-3 text-white font-bold uppercase'>subcribtion</button>
-			</div>
-		</div>
-		)
+        {/* Desktop Navigation */}
+        <div className='hidden md:flex items-center space-x-1 lg:space-x-4 xl:space-x-6'>
+          <ul className='flex items-center space-x-3 text-sm lg:text-base xl:text-lg capitalize'>
+            {['design', 'film', 'advertising', 'photography', 'digital', 'podcasts', 'about', 'contact'].map((item) => (
+              <li key={item}>
+                <a 
+                  href="#" 
+                  className='px-2 py-1 text-gray-700 hover:text-red-600 transition-colors'
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <button className='bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white font-bold uppercase text-sm lg:text-base transition-colors ml-4'>
+            subscription
+          </button>
+        </div>
+      </div>
+    </nav>
+  )
 }
